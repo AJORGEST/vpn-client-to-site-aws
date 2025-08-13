@@ -38,12 +38,12 @@ git clone https://github.com/OpenVPN/easy-rsa.git
 cd easy-rsa/easyrsa3
 ./easyrsa init-pki
 ./easyrsa build-ca nopass
-ANIMALS4LIFEVPN
 ./easyrsa build-server-full corp.xvia.org nopass
 aws acm import-certificate --certificate fileb://pki/issued/corp.xvia.org.crt --private-key fileb://pki/private/corp.xvia.org.key --certificate-chain fileb://pki/ca.crt --profile iamadmin-general
 ```
 # Windows
 
+```
 Open the OpenVPN Community Downloads page, download the Windows installer for your version of Windows, and run the installer.
 
 Open the EasyRSA releases page and download the ZIP file for your version of Windows. Extract the ZIP file and copy the EasyRSA folder to the \Program Files\OpenVPN folder.
@@ -67,6 +67,7 @@ aws acm import-certificate --certificate fileb://pki/issued/server.crt --private
 Type ACM or Certificate Manager into the search box at the top of the screen then right click and open in a new tab.
 
 Verify that your certificate exists in the us-east-1 region.
+```
 
 # 3.Create VPN Endpoint
 
