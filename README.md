@@ -88,3 +88,16 @@ Verify that your certificate exists in the us-east-1 region.
 - Click Create Client VPN Endpoint
 - Click Close
 
+# 4.Associate ClientVPN Endpoint
+
+* From the Client VPN Endpoints area of the VPC console, select the A4L Client VPN endpoint.
+* Click the Associations tab and click Associate
+* Click the VPC* dropdown and click the A4L-VPC
+* Open in a new tab, the VPC, Subnets console https://console.aws.amazon.com/vpc/home?region=us-east-1#subnets:
+* Locate the subnet ID for the 3 private subnets in the A4L VPC
+* Click the Choose a subnet to associate* dropdown and pick the first available PRIV subnet from the list (PRIV-A, PRIV-B, PRIV-C)
+* Click Associate then click Close
+* The VPN Endpoint will now be associated, you need to pause here and wait for the state of the VPN endpoint to change from Pending-associate to Available
+
+  
+
