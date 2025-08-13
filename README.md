@@ -72,12 +72,12 @@ Verify that your certificate exists in the us-east-1 region.
 # 3.Create VPN Endpoint
 
 - Type VPC in the services search box at the top of the screen, right click and open in a new tab.
-- Under **Virtual Private Network (VPN)** on the menu on the left, locate and click Create VPN Endpoint
+- Under **Virtual Private Network (VPN)** on the menu on the left, locate and `click Create VPN Endpoint`
 - `Click Create Client VPN Endpoint`
 - For Name Tag enter `Demo Client VPN`
 - Under Client IPv4 CIDR* enter `192.168.12.0/22`
 - Click the Server certificate ARN* dropdown and select the **server certificate** you created in stage 2.
-- Under Authentication Options check Use user-based authentication
+- Under Authentication Options `check Use user-based authentication`
 - `Check Active Directory authentication`
 - Under Directory ID* chose the directory you created in Stage 1 (e.g. corp.xvia.org)
 - Under Connection Logging, Do you want to log the details on client connections?* check no
