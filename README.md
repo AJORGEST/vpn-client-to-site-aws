@@ -15,7 +15,7 @@
 * Select `Simple AD` and click Next
 * Choose `Small` (this is a demo, for larger deployments you might pick large, or chose alternative methods of authentication)
 * Pick a Directory DNS Name, i'll use `corp.xvia.org`
-* Pick a Directory NetBIOS name, i'll use CORP
+* Pick a Directory `NetBIOS` name, i'll use CORP
 * Choose an `Administrator password, it will need to be strong` enough to meet the complexity requirements.
 * Enter the same password again in the Confirm Password box
 * for Directory description - Optional put `Directory Service for AWS Client VPN Demo`
