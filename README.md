@@ -1,11 +1,11 @@
 # vpn-client-to-site-aws
 
-Stage 1 - Create Directory Service (authentication for VPN users) aws
-Stage 2 - Certificates
-Stage 3 - Create VPN Endpoint
-Stage 4 - Configure VPN Endpoint & Associations
-Stage 5 - Download, install and test VPN Client
-Stage 6 - Cleanup
+- Stage 1 - Create Directory Service (authentication for VPN users) aws
+- Stage 2 - Certificates
+- Stage 3 - Create VPN Endpoint
+- Stage 4 - Configure VPN Endpoint & Associations
+- Stage 5 - Download, install and test VPN Client
+- Stage 6 - Cleanup
 
 # Create a simple AD instance
 
