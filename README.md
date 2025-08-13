@@ -9,7 +9,7 @@
 
 # Create a simple AD instance
 
-Type Directory Service into the top searchbox and open the directory services console in a new tab.
+* Type Directory Service into the top searchbox and open the directory services console in a new tab.
 Or use directly open via https://console.aws.amazon.com/directoryservicev2/identity?region=us-east-1#!/directories
 **Click Set up Directory**
 Select Simple AD and click Next
