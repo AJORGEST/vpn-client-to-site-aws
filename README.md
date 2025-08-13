@@ -102,8 +102,8 @@ Verify that your certificate exists in the us-east-1 region.
 
 # 5.Download the ClientVPN 
 
-* From the Client VPN Endpoints area of the VPC console, select the DEMO Client VPN endpoint.
-* Click Download Client Configuration, Click Download and save the file.
+* From the Client VPN Endpoints area of the VPC console, select the `DEMO Client VPN endpoint.`
+* Click Download Client Configuration, `Click Download and save the file.`
 * Go to https://aws.amazon.com/vpn/client-vpn-download/ and download the client for your operating system
 * Install the VPN Application
 * Start the application
