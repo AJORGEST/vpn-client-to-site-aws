@@ -25,3 +25,20 @@
 * Click Next
 * ***Click Create Directory**
 
+# Creating Certificates
+
+This past of the demo involves downloading easy-rsa and using this to create certificates which will be imported into ACM. If using this in production, you can create server and client certificates for mutual authentication. To keep things simple (the focus is on ClientVPN itself) we will only be using the server certificate.
+
+# Linux/macOS
+
+````
+open a terminal
+cd /tmp
+git clone https://github.com/OpenVPN/easy-rsa.git
+cd easy-rsa/easyrsa3
+./easyrsa init-pki
+./easyrsa build-ca nopass
+ANIMALS4LIFEVPN
+./easyrsa build-server-full corp.xvia.org nopass
+aws acm import-certificate --certificate fileb://pki/issued/corp.xvia.org.crt --private-key fileb://pki/private/corp.xvia.org.key --certificate-chain fileb://pki/ca.crt --profile iamadmin-general
+```
