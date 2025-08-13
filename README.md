@@ -72,11 +72,11 @@ Verify that your certificate exists in the us-east-1 region.
 # 3.Create VPN Endpoint
 
 - Type VPC in the services search box at the top of the screen, right click and open in a new tab.
-- Under Virtual Private Network (VPN) on the menu on the left, locate and click Create VPN Endpoint
+- Under **Virtual Private Network (VPN)** on the menu on the left, locate and click Create VPN Endpoint
 - `Click Create Client VPN Endpoint`
-- For Name Tag enter A4L Client VPN
+- For Name Tag enter `Demo Client VPN`
 - Under Client IPv4 CIDR* enter `192.168.12.0/22`
-- Click the Server certificate ARN* dropdown and select the server certificate you created in stage 2.
+- Click the Server certificate ARN* dropdown and select the **server certificate** you created in stage 2.
 - Under Authentication Options check Use user-based authentication
 - `Check Active Directory authentication`
 - Under Directory ID* chose the directory you created in Stage 1 (e.g. corp.xvia.org)
@@ -96,10 +96,37 @@ Verify that your certificate exists in the us-east-1 region.
 * Click the VPC* dropdown and click the `VPC-DEMO`
 * Open in a new tab, the VPC, Subnets -> console `https://console.aws.amazon.com/vpc/home?region=us-east-1#subnets:`
 * Locate the subnet ID for the 3 private subnets in the VPC DEMO
-* Click the Choose a subnet to associate* dropdown and pick the first available PRIV subnet from the list (PRIV-A, PRIV-B, PRIV-C)
+* Click the Choose a subnet to associate* dropdown and pick the first available PRIV subnet from the list `(PRIV-A, PRIV-B, PRIV-C)`
 * Click Associate then click Close
 * The VPN Endpoint will now be associated, you need to pause here and wait for the state of the VPN endpoint to change from Pending-associate to Available
 
+# 5.Download the ClientVPN 
+
+* From the Client VPN Endpoints area of the VPC console, select the DEMO Client VPN endpoint.
+* Click Download Client Configuration, Click Download and save the file.
+* Go to https://aws.amazon.com/vpn/client-vpn-download/ and download the client for your operating system
+* Install the VPN Application
+* Start the application
+* Go to manage profiles
+* add a profile
+* load the profile you downloaded (client configuration) - use DEMO for Displayname
+
+# 6.Connect
+
+Connect to DEMO VPN
+enter the Administrator username and password you chose in stage 1 for the Directory Service
+once connected open a terminal and `ping DIRECTORY_SERVICE_IP_ADDRESS' (you can get this from the DS Console)
+Notice it doesn't work ? once more step, and thats authorizations
+
+# 7.Authorize
+
+* From the Client VPN Console `https://console.aws.amazon.com/vpc/home?region=us-east-1#ClientVPNEndpoints:sort=status.code select the A4L VPN Endpoint`
+* Click the Authorization tab and click Authorize Ingress
+* For Destination network to enable enter `10.16.0.0/16`
+* For Grant access to check `Allow access to all users`
+* Click Add Authorization Rule
+* open a terminal and `ping DIRECTORY_SERVICE_IP_ADDRESS'` (you can get this from the DS Console)
+* notice how this works? you are now connected.
 
   
 
