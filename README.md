@@ -31,7 +31,7 @@ This past of the demo involves downloading easy-rsa and using this to create cer
 
 # Linux/macOS
 
-````
+```
 open a terminal
 cd /tmp
 git clone https://github.com/OpenVPN/easy-rsa.git
@@ -42,3 +42,28 @@ ANIMALS4LIFEVPN
 ./easyrsa build-server-full corp.xvia.org nopass
 aws acm import-certificate --certificate fileb://pki/issued/corp.xvia.org.crt --private-key fileb://pki/private/corp.xvia.org.key --certificate-chain fileb://pki/ca.crt --profile iamadmin-general
 ```
+# Windows
+
+Open the OpenVPN Community Downloads page, download the Windows installer for your version of Windows, and run the installer.
+
+Open the EasyRSA releases page and download the ZIP file for your version of Windows. Extract the ZIP file and copy the EasyRSA folder to the \Program Files\OpenVPN folder.
+
+Open the command prompt as an Administrator, navigate to the \Program Files\OpenVPN\EasyRSA directory, and run the following command to open the EasyRSA 3 shell.
+
+EasyRSA-Start
+
+./easyrsa init-pki
+
+./easyrsa build-ca nopass
+
+./easyrsa build-server-full server nopass
+
+./easyrsa build-client-full client1.domain.tld nopass
+
+exit
+
+aws acm import-certificate --certificate fileb://pki/issued/server.crt --private-key fileb://pki/private/server.key --certificate-chain fileb://pki/ca.crt --profile iamadmin-general
+
+Type ACM or Certificate Manager into the search box at the top of the screen then right click and open in a new tab.
+
+Verify that your certificate exists in the us-east-1 region.
