@@ -7,7 +7,7 @@
 - Stage 5 - Download, install and test VPN Client
 - Stage 6 - Cleanup
 
-# Create a simple AD instance
+# 1.Create a simple AD instance
 
 * Type Directory Service into the top searchbox and open the directory services console in a new tab.
 * Acesse Or use directly open via https://console.aws.amazon.com/directoryservicev2/identity?region=us-east-1#!/directories
@@ -25,7 +25,7 @@
 * Click Next
 * ***Click Create Directory**
 
-# Creating Certificates
+# 2.Creating Certificates
 
 This past of the demo involves downloading easy-rsa and using this to create certificates which will be imported into ACM. If using this in production, you can create server and client certificates for mutual authentication. To keep things simple (the focus is on ClientVPN itself) we will only be using the server certificate.
 
@@ -67,3 +67,24 @@ aws acm import-certificate --certificate fileb://pki/issued/server.crt --private
 Type ACM or Certificate Manager into the search box at the top of the screen then right click and open in a new tab.
 
 Verify that your certificate exists in the us-east-1 region.
+
+# 3.Create VPN Endpoint
+
+Type VPC in the services search box at the top of the screen, right click and open in a new tab.
+Under Virtual Private Network (VPN) on the menu on the left, locate and click Create VPN Endpoint
+`Click Create Client VPN Endpoint`
+For Name Tag enter A4L Client VPN
+Under Client IPv4 CIDR* enter `192.168.12.0/22`
+Click the Server certificate ARN* dropdown and select the server certificate you created in stage 2.
+Under Authentication Options check Use user-based authentication
+`Check Active Directory authentication`
+Under Directory ID* chose the directory you created in Stage 1 (e.g. corp.xvia.org)
+Under Connection Logging, Do you want to log the details on client connections?* check no
+for `DNS Server 1 IP address and DNS Server 2` IP address we need to enter the IP addresses of the directory service instance. Go back to the tab with the directory service console open, click the directory service instance ID , locate the DNS address area and copy one IP into each of the DNS Server IP boxes.
+`Check Enable split-tunnel`
+in the VPC ID dropdown select `VPC-DEMO`
+Ensure the Default SG is checked and the A4L DefaultSG
+`Check Enable self-service portal`
+Click Create Client VPN Endpoint
+Click Close
+
